@@ -10,7 +10,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.Abs
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
 class YouTubePlayerActivity : AppCompatActivity() {
-    var video_id = "5lmhxob61eg"
+   // var video_id = "5lmhxob61eg"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // below two lines are used to set our screen orientation in landscape mode.
@@ -24,6 +24,8 @@ class YouTubePlayerActivity : AppCompatActivity() {
 
         // below line of code is to hide our action bar.
         supportActionBar?.hide()
+
+        val videoID = intent.getStringExtra("url");
 
         // declaring variable for youtubePlayer view
         val youTubePlayerView: YouTubePlayerView = findViewById(R.id.videoPlayer)
@@ -47,7 +49,7 @@ class YouTubePlayerActivity : AppCompatActivity() {
         youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
                 // loading the selected video into the YouTube Player
-                youTubePlayer.loadVideo(video_id, 0F)
+                youTubePlayer.loadVideo(videoID.toString(), 0F)
             }
 
             override fun onStateChange(

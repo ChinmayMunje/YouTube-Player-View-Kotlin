@@ -1,33 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_shade_1"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/idIVLogo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/logo_back"
+        android:padding="15dp"
+        android:src="@drawable/youtube" />
 
     <TextView
         android:id="@+id/idTVHeading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/idBtnPlayVideo"
+        android:layout_below="@id/idIVLogo"
         android:layout_margin="20dp"
         android:gravity="center"
         android:padding="10dp"
         android:text="YouTube Player View in Android"
         android:textAlignment="center"
-        android:textColor="@color/purple_200"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/idTILVideoURL"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idTVHeading"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Enter YouTube Video URL"
+        android:padding="5dp"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/white"
+        app:hintTextColor="@color/white">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/idEdtYouTubeURL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="textImeMultiLine|textMultiLine"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textColorLink="@color/white"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/idBtnPlayVideo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_below="@id/idTILVideoURL"
         android:layout_margin="30dp"
+        android:background="@drawable/button_back"
         android:padding="10dp"
         android:text="Play YouTube Video"
-        android:textAllCaps="false" />
-
+        android:textAllCaps="false"
+        app:backgroundTint="@color/button_color" />
 
 </RelativeLayout>
